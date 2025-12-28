@@ -1,0 +1,137 @@
+# Subscription Management System
+
+This is a full-stack subscription management system with 
+**React frontend** 
+**Node.js backend**
+**MongoDB** as database. 
+
+
+It includes JWT-based authentication, Stripe integration, and role-based access control (admin/user). 
+Unit and integration tests are provided along with Postman API documentation.
+
+
+FOLDER STRUCTURE : 
+
+subscrip_manag/
+├── backend/              # Node.js backend
+│ ├── .env.example       # Environment variable template
+├── frontend/            # React frontend
+├── docs/                # Screenshots & test reports
+│ ├── unit-tests/        #test reports of unit and integration testing
+│ └── postman-api/       #postman api results
+├── .gitignore
+└── README.md
+
+
+SETUP STEPS :
+
+BACKEND :
+
+cd backend
+npm install
+
+
+Copy .env.example into your .env file .
+
+Fill in your values : 
+
+JWT_SECRET=your_jwt_secret
+PORT=5000
+STRIPE_SECRET_KEY=sk_test_your_key_here   # Use Stripe test key
+STRIPE_WEBHOOK_SECRET=whsec_your_secret_here
+FRONTEND_URL=http://localhost:3000
+
+
+Start the backend server : npm start.
+
+
+
+FRONT-END :
+cd frontend
+npm install
+npm start
+
+App runs on http://localhost:3000 by default
+
+Backend API runs on http://localhost:5000.
+
+
+RUN TESTS :
+
+Unit & Integration tests (Jest + Supertest):
+
+cd backend
+npm test
+
+
+Test report generated in docs/unit-tests/test-report.html
+
+
+API Usage
+
+Postman collection available at docs/api-results/readme.txt
+
+JWT-based authentication:
+
+Login → receives JWT token
+
+Save token in environment to access protected routes
+
+Admin APIs require user role = admin in database.
+
+
+STRIPE INTEGRATION.
+
+Stripe Integration
+
+This project uses Stripe test keys only
+
+To test payments or subscriptions, use the test card number: 4242 4242 4242 4242
+
+Webhook signature is required for testing Stripe events.
+
+
+## Authentication APIs
+- Login: returns JWT token
+- Signup: creates user successfully
+
+## User APIs
+- View subscription
+- Cancel subscription
+- Profile retrieval
+
+## Admin APIs
+Admin endpoints are protected via role-based authorization.
+
+- Non-admin access correctly returns `403 Admin access only`
+- Admin access works after role elevation in database. 
+- (IMP)  User would have to be elevated to the role of admin in database and then login through those credentials to get admin level view to database.
+
+These screenshots validate correct API behavior and security enforcement.
+
+
+Variable	Description
+BASE_URL	Backend server URL (e.g. http://localhost:5000)
+TOKEN	    JWT token generated via Login API
+
+
+JWT token is automatically stored in the environment after successful login using Postman post-response scripts.
+All protected APIs use Authorization: Bearer {{TOKEN}}.
+
+
+
+Authentication APIs
+
+Signup: Creates a new user successfully
+Login: Authenticates user and returns JWT token.
+
+
+User APIs
+
+View subscription details
+Cancel subscription
+Retrieve user profile
+
+
+Admin APIs (Role-Based Access)
+Admin endpoints are protected using role-based authorization.

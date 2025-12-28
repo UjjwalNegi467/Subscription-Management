@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: url("./assets/backg.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.dashboard {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.user-card {
+  background: #ffffff; 
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+.user-card h2 {
+  margin-bottom: 10px;
+}
+
+.current-plan span {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.plans-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.plans {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.plan-card {
+  background: white;
+  width: 220px;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+}
+
+.plan-card h3 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.price {
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.plan-card button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.plan-card button:hover {
+  background: #0056b3;
+}
+
+.plan-card.active {
+  border: 2px solid #28a745;
+}
+
+.active-btn {
+  background: #28a745 !important;
+  cursor: default;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 20px;
+}
+.cancel-btn {
+  margin-top: 20px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #dc3545;
+  color: white;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background: #b52a37;
+}
